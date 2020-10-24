@@ -1,0 +1,45 @@
+<p>Agregar Cotización</p>
+<form [formGroup]="formCotizacion" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="clientId">Cliente</label>
+      <select id="clientId" formControlName="clientId" class="form-control">
+        <option selected>Seleccionar...</option>
+        <option *ngFor="let c of clients" [value]="c.id">{{c.name}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="ruc">RUC</label>
+      <input type="text" formControlName="ruc" class="form-control" id="ruc" >
+    </div>
+    <div class="form-group col-md-4">
+      <label for="sellerId">Vendedor</label>
+      <select id="sellerId" formControlName="sellerId" class="form-control">
+        <option selected>Seleccionar...</option>
+        <option *ngFor="let s of sellers" [value]="s.id">{{s.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="productId">Producto</label>
+      <select id="productId" formControlName="productId" class="form-control">
+        <option selected>Seleccionar...</option>
+        <option *ngFor="let p of products" [value]="p.id">{{p.name}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="price">Valor</label>
+      <input type="number" formControlName="price" class="form-control" id="price">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="tax">Impuestos</label>
+      <input type="number" formControlName="tax" class="form-control" id="tax" >
+    </div>
+    <div class="form-group col-md-3">
+      <label for="discount">Descuento</label>
+      <input type="number" formControlName="discount" class="form-control" id="discount" >
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
